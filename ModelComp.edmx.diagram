@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce8086b56cec43b6a09e7291e7acbbbe" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="7.125" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="9.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaims" Width="1.5" PointX="9.375" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogins" Width="1.5" PointX="11" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="7.375" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Бригады" Width="2.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.График_работы" Width="1.5" PointX="10.375" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Должности" Width="2.375" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Заявки" Width="2" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Работа_бригад_за_месяц" Width="2" PointX="2.875" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Сведения_о_сотрудниках" Width="2" PointX="12.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.СотрудникиБригад" Width="2.25" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Услуги" Width="1.5" PointX="8.5" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Работа_бригад_за_месяц_ToБригады" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_СотрудникиБригад_ToБригады" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сведения_о_сотрудниках_ToГрафик" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_Должности_ToУслуги" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Сведения_о_сотрудниках_ToДолжности" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_СотрудникиБригад_ToДолжности" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Работа_бригад_за_месяц_ToЗаявки" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_СотрудникиБригад_ToСотрудники" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

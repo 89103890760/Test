@@ -1,0 +1,916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Бригады">
+          <Key>
+            <PropertyRef Name="id_бригады" />
+          </Key>
+          <Property Name="id_бригады" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название бригады" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="График работы">
+          <Key>
+            <PropertyRef Name="Id_графика" />
+          </Key>
+          <Property Name="Id_графика" Type="int" Nullable="false" />
+          <Property Name="Понедельник" Type="nchar" MaxLength="10" />
+          <Property Name="Вторник" Type="nchar" MaxLength="10" />
+          <Property Name="Среда" Type="nchar" MaxLength="10" />
+          <Property Name="Четверг" Type="nchar" MaxLength="10" />
+          <Property Name="Пятница" Type="nchar" MaxLength="10" />
+          <Property Name="Суббота" Type="nchar" MaxLength="10" />
+          <Property Name="Воскресенье" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Должности">
+          <Key>
+            <PropertyRef Name="Id_должности" />
+          </Key>
+          <Property Name="Id_должности" Type="int" Nullable="false" />
+          <Property Name="Наименование должности" Type="nchar" MaxLength="20" />
+          <Property Name="Id_услуги" Type="int" />
+        </EntityType>
+        <EntityType Name="Заявки">
+          <Key>
+            <PropertyRef Name="Id_заявки" />
+          </Key>
+          <Property Name="Id_заявки" Type="int" Nullable="false" />
+          <Property Name="Фамилия клиента" Type="nchar" MaxLength="50" />
+          <Property Name="Имя клиента" Type="nchar" MaxLength="50" />
+          <Property Name="Отчество клиента" Type="nchar" MaxLength="50" />
+          <Property Name="Телефон" Type="nchar" MaxLength="50" />
+          <Property Name="e-mail" Type="nchar" MaxLength="50" />
+          <Property Name="Наименование услуги" Type="nchar" MaxLength="50" />
+          <Property Name="Сроки исследования (начало-конец)" Type="nchar" MaxLength="50" />
+          <Property Name="Координаты объекта исследования" Type="nchar" MaxLength="50" />
+          <Property Name="Итогодая цена" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Дата добавления заявки" Type="datetime" />
+          <Property Name="Заявка выполнена / не выполнена (да/нет)" Type="nchar" MaxLength="10" />
+          <Property Name="Дата выполнения заявки" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Работа бригад за месяц">
+          <Key>
+            <PropertyRef Name="Id_сотрудника" />
+          </Key>
+          <Property Name="Id_сотрудника" Type="int" Nullable="false" />
+          <Property Name="Id_заявки" Type="int" />
+          <Property Name="Id_бригады" Type="int" />
+          <Property Name="Время на выполнение заявки" Type="nchar" MaxLength="20" />
+          <Property Name="Дата выполнения заявки" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Сведения о сотрудниках">
+          <Key>
+            <PropertyRef Name="Id_сотрудника" />
+          </Key>
+          <Property Name="Id_сотрудника" Type="int" Nullable="false" />
+          <Property Name="Фамилия сотрудника" Type="nchar" MaxLength="50" />
+          <Property Name="Имя сотрудника" Type="nchar" MaxLength="50" />
+          <Property Name="Отчество сотрудника" Type="nchar" MaxLength="50" />
+          <Property Name="Телефон" Type="nchar" MaxLength="20" />
+          <Property Name="Дата рождения" Type="datetime" />
+          <Property Name="Адрес проживания" Type="nchar" MaxLength="70" />
+          <Property Name="Id_графика" Type="int" />
+          <Property Name="Id_должности" Type="int" />
+        </EntityType>
+        <EntityType Name="СотрудникиБригад">
+          <Key>
+            <PropertyRef Name="Id_сотрудника_бригады" />
+          </Key>
+          <Property Name="Id_сотрудника_бригады" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_сотрудника" Type="int" />
+          <Property Name="Id_должности" Type="int" />
+          <Property Name="id_бригады" Type="int" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="Id_услуги" />
+          </Key>
+          <Property Name="Id_услуги" Type="int" Nullable="false" />
+          <Property Name="Наименование услуги" Type="nchar" MaxLength="50" />
+          <Property Name="Описание" Type="nchar" MaxLength="50" />
+          <Property Name="Цена" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Должности_ToУслуги">
+          <End Role="Услуги" Type="Self.Услуги" Multiplicity="0..1" />
+          <End Role="Должности" Type="Self.Должности" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Услуги">
+              <PropertyRef Name="Id_услуги" />
+            </Principal>
+            <Dependent Role="Должности">
+              <PropertyRef Name="Id_услуги" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Работа бригад за месяц_ToБригады">
+          <End Role="Бригады" Type="Self.Бригады" Multiplicity="0..1" />
+          <End Role="Работа бригад за месяц" Type="Self.Работа бригад за месяц" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бригады">
+              <PropertyRef Name="id_бригады" />
+            </Principal>
+            <Dependent Role="Работа бригад за месяц">
+              <PropertyRef Name="Id_бригады" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Работа бригад за месяц_ToЗаявки">
+          <End Role="Заявки" Type="Self.Заявки" Multiplicity="0..1" />
+          <End Role="Работа бригад за месяц" Type="Self.Работа бригад за месяц" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заявки">
+              <PropertyRef Name="Id_заявки" />
+            </Principal>
+            <Dependent Role="Работа бригад за месяц">
+              <PropertyRef Name="Id_заявки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сведения о сотрудниках_ToГрафик">
+          <End Role="График работы" Type="Self.График работы" Multiplicity="0..1" />
+          <End Role="Сведения о сотрудниках" Type="Self.Сведения о сотрудниках" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="График работы">
+              <PropertyRef Name="Id_графика" />
+            </Principal>
+            <Dependent Role="Сведения о сотрудниках">
+              <PropertyRef Name="Id_графика" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сведения о сотрудниках_ToДолжности">
+          <End Role="Должности" Type="Self.Должности" Multiplicity="0..1" />
+          <End Role="Сведения о сотрудниках" Type="Self.Сведения о сотрудниках" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должности">
+              <PropertyRef Name="Id_должности" />
+            </Principal>
+            <Dependent Role="Сведения о сотрудниках">
+              <PropertyRef Name="Id_должности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToБригады">
+          <End Role="Бригады" Type="Self.Бригады" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бригады">
+              <PropertyRef Name="id_бригады" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="id_бригады" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToДолжности">
+          <End Role="Должности" Type="Self.Должности" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должности">
+              <PropertyRef Name="Id_должности" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="Id_должности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToСотрудники">
+          <End Role="Сведения о сотрудниках" Type="Self.Сведения о сотрудниках" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сведения о сотрудниках">
+              <PropertyRef Name="Id_сотрудника" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="Id_сотрудника" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Бригады" EntityType="Self.Бригады" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="График работы" EntityType="Self.График работы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Должности" EntityType="Self.Должности" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Заявки" EntityType="Self.Заявки" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Работа бригад за месяц" EntityType="Self.Работа бригад за месяц" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сведения о сотрудниках" EntityType="Self.Сведения о сотрудниках" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="СотрудникиБригад" EntityType="Self.СотрудникиБригад" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Должности_ToУслуги" Association="Self.FK_Должности_ToУслуги">
+            <End Role="Услуги" EntitySet="Услуги" />
+            <End Role="Должности" EntitySet="Должности" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Работа бригад за месяц_ToБригады" Association="Self.FK_Работа бригад за месяц_ToБригады">
+            <End Role="Бригады" EntitySet="Бригады" />
+            <End Role="Работа бригад за месяц" EntitySet="Работа бригад за месяц" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Работа бригад за месяц_ToЗаявки" Association="Self.FK_Работа бригад за месяц_ToЗаявки">
+            <End Role="Заявки" EntitySet="Заявки" />
+            <End Role="Работа бригад за месяц" EntitySet="Работа бригад за месяц" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сведения о сотрудниках_ToГрафик" Association="Self.FK_Сведения о сотрудниках_ToГрафик">
+            <End Role="График работы" EntitySet="График работы" />
+            <End Role="Сведения о сотрудниках" EntitySet="Сведения о сотрудниках" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сведения о сотрудниках_ToДолжности" Association="Self.FK_Сведения о сотрудниках_ToДолжности">
+            <End Role="Должности" EntitySet="Должности" />
+            <End Role="Сведения о сотрудниках" EntitySet="Сведения о сотрудниках" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToБригады" Association="Self.FK_СотрудникиБригад_ToБригады">
+            <End Role="Бригады" EntitySet="Бригады" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToДолжности" Association="Self.FK_СотрудникиБригад_ToДолжности">
+            <End Role="Должности" EntitySet="Должности" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToСотрудники" Association="Self.FK_СотрудникиБригад_ToСотрудники">
+            <End Role="Сведения о сотрудниках" EntitySet="Сведения о сотрудниках" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Бригады">
+          <Key>
+            <PropertyRef Name="id_бригады" />
+          </Key>
+          <Property Name="id_бригады" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название_бригады" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Работа_бригад_за_месяц" Relationship="Self.FK_Работа_бригад_за_месяц_ToБригады" FromRole="Бригады" ToRole="Работа_бригад_за_месяц" />
+          <NavigationProperty Name="СотрудникиБригад" Relationship="Self.FK_СотрудникиБригад_ToБригады" FromRole="Бригады" ToRole="СотрудникиБригад" />
+        </EntityType>
+        <EntityType Name="График_работы">
+          <Key>
+            <PropertyRef Name="Id_графика" />
+          </Key>
+          <Property Name="Id_графика" Type="Int32" Nullable="false" />
+          <Property Name="Понедельник" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Вторник" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Среда" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Четверг" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Пятница" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Суббота" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Воскресенье" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Сведения_о_сотрудниках" Relationship="Self.FK_Сведения_о_сотрудниках_ToГрафик" FromRole="График_работы" ToRole="Сведения_о_сотрудниках" />
+        </EntityType>
+        <EntityType Name="Должности">
+          <Key>
+            <PropertyRef Name="Id_должности" />
+          </Key>
+          <Property Name="Id_должности" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_должности" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Id_услуги" Type="Int32" />
+          <NavigationProperty Name="Услуги" Relationship="Self.FK_Должности_ToУслуги" FromRole="Должности" ToRole="Услуги" />
+          <NavigationProperty Name="Сведения_о_сотрудниках" Relationship="Self.FK_Сведения_о_сотрудниках_ToДолжности" FromRole="Должности" ToRole="Сведения_о_сотрудниках" />
+          <NavigationProperty Name="СотрудникиБригад" Relationship="Self.FK_СотрудникиБригад_ToДолжности" FromRole="Должности" ToRole="СотрудникиБригад" />
+        </EntityType>
+        <EntityType Name="Заявки">
+          <Key>
+            <PropertyRef Name="Id_заявки" />
+          </Key>
+          <Property Name="Id_заявки" Type="Int32" Nullable="false" />
+          <Property Name="Фамилия_клиента" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Имя_клиента" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Отчество_клиента" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Наименование_услуги" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Сроки_исследования__начало_конец_" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Координаты_объекта_исследования" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Итогодая_цена" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Дата_добавления_заявки" Type="DateTime" Precision="3" />
+          <Property Name="Заявка_выполнена___не_выполнена__да_нет_" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Дата_выполнения_заявки" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Работа_бригад_за_месяц" Relationship="Self.FK_Работа_бригад_за_месяц_ToЗаявки" FromRole="Заявки" ToRole="Работа_бригад_за_месяц" />
+        </EntityType>
+        <EntityType Name="Работа_бригад_за_месяц">
+          <Key>
+            <PropertyRef Name="Id_сотрудника" />
+          </Key>
+          <Property Name="Id_сотрудника" Type="Int32" Nullable="false" />
+          <Property Name="Id_заявки" Type="Int32" />
+          <Property Name="Id_бригады" Type="Int32" />
+          <Property Name="Время_на_выполнение_заявки" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Дата_выполнения_заявки" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Бригады" Relationship="Self.FK_Работа_бригад_за_месяц_ToБригады" FromRole="Работа_бригад_за_месяц" ToRole="Бригады" />
+          <NavigationProperty Name="Заявки" Relationship="Self.FK_Работа_бригад_за_месяц_ToЗаявки" FromRole="Работа_бригад_за_месяц" ToRole="Заявки" />
+        </EntityType>
+        <EntityType Name="Сведения_о_сотрудниках">
+          <Key>
+            <PropertyRef Name="Id_сотрудника" />
+          </Key>
+          <Property Name="Id_сотрудника" Type="Int32" Nullable="false" />
+          <Property Name="Фамилия_сотрудника" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Имя_сотрудника" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Отчество_сотрудника" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Дата_рождения" Type="DateTime" Precision="3" />
+          <Property Name="Адрес_проживания" Type="String" MaxLength="70" FixedLength="true" Unicode="true" />
+          <Property Name="Id_графика" Type="Int32" />
+          <Property Name="Id_должности" Type="Int32" />
+          <NavigationProperty Name="График_работы" Relationship="Self.FK_Сведения_о_сотрудниках_ToГрафик" FromRole="Сведения_о_сотрудниках" ToRole="График_работы" />
+          <NavigationProperty Name="Должности" Relationship="Self.FK_Сведения_о_сотрудниках_ToДолжности" FromRole="Сведения_о_сотрудниках" ToRole="Должности" />
+          <NavigationProperty Name="СотрудникиБригад" Relationship="Self.FK_СотрудникиБригад_ToСотрудники" FromRole="Сведения_о_сотрудниках" ToRole="СотрудникиБригад" />
+        </EntityType>
+        <EntityType Name="СотрудникиБригад">
+          <Key>
+            <PropertyRef Name="Id_сотрудника_бригады" />
+          </Key>
+          <Property Name="Id_сотрудника_бригады" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_сотрудника" Type="Int32" />
+          <Property Name="Id_должности" Type="Int32" />
+          <Property Name="id_бригады" Type="Int32" />
+          <NavigationProperty Name="Бригады" Relationship="Self.FK_СотрудникиБригад_ToБригады" FromRole="СотрудникиБригад" ToRole="Бригады" />
+          <NavigationProperty Name="Должности" Relationship="Self.FK_СотрудникиБригад_ToДолжности" FromRole="СотрудникиБригад" ToRole="Должности" />
+          <NavigationProperty Name="Сведения_о_сотрудниках" Relationship="Self.FK_СотрудникиБригад_ToСотрудники" FromRole="СотрудникиБригад" ToRole="Сведения_о_сотрудниках" />
+        </EntityType>
+        <EntityType Name="Услуги">
+          <Key>
+            <PropertyRef Name="Id_услуги" />
+          </Key>
+          <Property Name="Id_услуги" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_услуги" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Описание" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Цена" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Должности" Relationship="Self.FK_Должности_ToУслуги" FromRole="Услуги" ToRole="Должности" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Работа_бригад_за_месяц_ToБригады">
+          <End Role="Бригады" Type="Self.Бригады" Multiplicity="0..1" />
+          <End Role="Работа_бригад_за_месяц" Type="Self.Работа_бригад_за_месяц" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бригады">
+              <PropertyRef Name="id_бригады" />
+            </Principal>
+            <Dependent Role="Работа_бригад_за_месяц">
+              <PropertyRef Name="Id_бригады" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToБригады">
+          <End Role="Бригады" Type="Self.Бригады" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бригады">
+              <PropertyRef Name="id_бригады" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="id_бригады" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сведения_о_сотрудниках_ToГрафик">
+          <End Role="График_работы" Type="Self.График_работы" Multiplicity="0..1" />
+          <End Role="Сведения_о_сотрудниках" Type="Self.Сведения_о_сотрудниках" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="График_работы">
+              <PropertyRef Name="Id_графика" />
+            </Principal>
+            <Dependent Role="Сведения_о_сотрудниках">
+              <PropertyRef Name="Id_графика" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Должности_ToУслуги">
+          <End Role="Услуги" Type="Self.Услуги" Multiplicity="0..1" />
+          <End Role="Должности" Type="Self.Должности" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Услуги">
+              <PropertyRef Name="Id_услуги" />
+            </Principal>
+            <Dependent Role="Должности">
+              <PropertyRef Name="Id_услуги" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сведения_о_сотрудниках_ToДолжности">
+          <End Role="Должности" Type="Self.Должности" Multiplicity="0..1" />
+          <End Role="Сведения_о_сотрудниках" Type="Self.Сведения_о_сотрудниках" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должности">
+              <PropertyRef Name="Id_должности" />
+            </Principal>
+            <Dependent Role="Сведения_о_сотрудниках">
+              <PropertyRef Name="Id_должности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToДолжности">
+          <End Role="Должности" Type="Self.Должности" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должности">
+              <PropertyRef Name="Id_должности" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="Id_должности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Работа_бригад_за_месяц_ToЗаявки">
+          <End Role="Заявки" Type="Self.Заявки" Multiplicity="0..1" />
+          <End Role="Работа_бригад_за_месяц" Type="Self.Работа_бригад_за_месяц" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заявки">
+              <PropertyRef Name="Id_заявки" />
+            </Principal>
+            <Dependent Role="Работа_бригад_за_месяц">
+              <PropertyRef Name="Id_заявки" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_СотрудникиБригад_ToСотрудники">
+          <End Role="Сведения_о_сотрудниках" Type="Self.Сведения_о_сотрудниках" Multiplicity="0..1" />
+          <End Role="СотрудникиБригад" Type="Self.СотрудникиБригад" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сведения_о_сотрудниках">
+              <PropertyRef Name="Id_сотрудника" />
+            </Principal>
+            <Dependent Role="СотрудникиБригад">
+              <PropertyRef Name="Id_сотрудника" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Данные_компанииEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Бригады" EntityType="Self.Бригады" />
+          <EntitySet Name="График_работы" EntityType="Self.График_работы" />
+          <EntitySet Name="Должности" EntityType="Self.Должности" />
+          <EntitySet Name="Заявки" EntityType="Self.Заявки" />
+          <EntitySet Name="Работа_бригад_за_месяц" EntityType="Self.Работа_бригад_за_месяц" />
+          <EntitySet Name="Сведения_о_сотрудниках" EntityType="Self.Сведения_о_сотрудниках" />
+          <EntitySet Name="СотрудникиБригад" EntityType="Self.СотрудникиБригад" />
+          <EntitySet Name="Услуги" EntityType="Self.Услуги" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Работа_бригад_за_месяц_ToБригады" Association="Self.FK_Работа_бригад_за_месяц_ToБригады">
+            <End Role="Бригады" EntitySet="Бригады" />
+            <End Role="Работа_бригад_за_месяц" EntitySet="Работа_бригад_за_месяц" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToБригады" Association="Self.FK_СотрудникиБригад_ToБригады">
+            <End Role="Бригады" EntitySet="Бригады" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сведения_о_сотрудниках_ToГрафик" Association="Self.FK_Сведения_о_сотрудниках_ToГрафик">
+            <End Role="График_работы" EntitySet="График_работы" />
+            <End Role="Сведения_о_сотрудниках" EntitySet="Сведения_о_сотрудниках" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Должности_ToУслуги" Association="Self.FK_Должности_ToУслуги">
+            <End Role="Услуги" EntitySet="Услуги" />
+            <End Role="Должности" EntitySet="Должности" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сведения_о_сотрудниках_ToДолжности" Association="Self.FK_Сведения_о_сотрудниках_ToДолжности">
+            <End Role="Должности" EntitySet="Должности" />
+            <End Role="Сведения_о_сотрудниках" EntitySet="Сведения_о_сотрудниках" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToДолжности" Association="Self.FK_СотрудникиБригад_ToДолжности">
+            <End Role="Должности" EntitySet="Должности" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Работа_бригад_за_месяц_ToЗаявки" Association="Self.FK_Работа_бригад_за_месяц_ToЗаявки">
+            <End Role="Заявки" EntitySet="Заявки" />
+            <End Role="Работа_бригад_за_месяц" EntitySet="Работа_бригад_за_месяц" />
+          </AssociationSet>
+          <AssociationSet Name="FK_СотрудникиБригад_ToСотрудники" Association="Self.FK_СотрудникиБригад_ToСотрудники">
+            <End Role="Сведения_о_сотрудниках" EntitySet="Сведения_о_сотрудниках" />
+            <End Role="СотрудникиБригад" EntitySet="СотрудникиБригад" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Данные_компанииEntities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Бригады">
+            <EntityTypeMapping TypeName="Model.Бригады">
+              <MappingFragment StoreEntitySet="Бригады">
+                <ScalarProperty Name="id_бригады" ColumnName="id_бригады" />
+                <ScalarProperty Name="Название_бригады" ColumnName="Название бригады" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="График_работы">
+            <EntityTypeMapping TypeName="Model.График_работы">
+              <MappingFragment StoreEntitySet="График работы">
+                <ScalarProperty Name="Id_графика" ColumnName="Id_графика" />
+                <ScalarProperty Name="Понедельник" ColumnName="Понедельник" />
+                <ScalarProperty Name="Вторник" ColumnName="Вторник" />
+                <ScalarProperty Name="Среда" ColumnName="Среда" />
+                <ScalarProperty Name="Четверг" ColumnName="Четверг" />
+                <ScalarProperty Name="Пятница" ColumnName="Пятница" />
+                <ScalarProperty Name="Суббота" ColumnName="Суббота" />
+                <ScalarProperty Name="Воскресенье" ColumnName="Воскресенье" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Должности">
+            <EntityTypeMapping TypeName="Model.Должности">
+              <MappingFragment StoreEntitySet="Должности">
+                <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+                <ScalarProperty Name="Наименование_должности" ColumnName="Наименование должности" />
+                <ScalarProperty Name="Id_услуги" ColumnName="Id_услуги" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Заявки">
+            <EntityTypeMapping TypeName="Model.Заявки">
+              <MappingFragment StoreEntitySet="Заявки">
+                <ScalarProperty Name="Id_заявки" ColumnName="Id_заявки" />
+                <ScalarProperty Name="Фамилия_клиента" ColumnName="Фамилия клиента" />
+                <ScalarProperty Name="Имя_клиента" ColumnName="Имя клиента" />
+                <ScalarProperty Name="Отчество_клиента" ColumnName="Отчество клиента" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+                <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование услуги" />
+                <ScalarProperty Name="Сроки_исследования__начало_конец_" ColumnName="Сроки исследования (начало-конец)" />
+                <ScalarProperty Name="Координаты_объекта_исследования" ColumnName="Координаты объекта исследования" />
+                <ScalarProperty Name="Итогодая_цена" ColumnName="Итогодая цена" />
+                <ScalarProperty Name="Дата_добавления_заявки" ColumnName="Дата добавления заявки" />
+                <ScalarProperty Name="Заявка_выполнена___не_выполнена__да_нет_" ColumnName="Заявка выполнена / не выполнена (да/нет)" />
+                <ScalarProperty Name="Дата_выполнения_заявки" ColumnName="Дата выполнения заявки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Работа_бригад_за_месяц">
+            <EntityTypeMapping TypeName="Model.Работа_бригад_за_месяц">
+              <MappingFragment StoreEntitySet="Работа бригад за месяц">
+                <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+                <ScalarProperty Name="Id_заявки" ColumnName="Id_заявки" />
+                <ScalarProperty Name="Id_бригады" ColumnName="Id_бригады" />
+                <ScalarProperty Name="Время_на_выполнение_заявки" ColumnName="Время на выполнение заявки" />
+                <ScalarProperty Name="Дата_выполнения_заявки" ColumnName="Дата выполнения заявки" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сведения_о_сотрудниках">
+            <EntityTypeMapping TypeName="Model.Сведения_о_сотрудниках">
+              <MappingFragment StoreEntitySet="Сведения о сотрудниках">
+                <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+                <ScalarProperty Name="Фамилия_сотрудника" ColumnName="Фамилия сотрудника" />
+                <ScalarProperty Name="Имя_сотрудника" ColumnName="Имя сотрудника" />
+                <ScalarProperty Name="Отчество_сотрудника" ColumnName="Отчество сотрудника" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+                <ScalarProperty Name="Адрес_проживания" ColumnName="Адрес проживания" />
+                <ScalarProperty Name="Id_графика" ColumnName="Id_графика" />
+                <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="СотрудникиБригад">
+            <EntityTypeMapping TypeName="Model.СотрудникиБригад">
+              <MappingFragment StoreEntitySet="СотрудникиБригад">
+                <ScalarProperty Name="Id_сотрудника_бригады" ColumnName="Id_сотрудника_бригады" />
+                <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+                <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+                <ScalarProperty Name="id_бригады" ColumnName="id_бригады" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Услуги">
+            <EntityTypeMapping TypeName="Model.Услуги">
+              <MappingFragment StoreEntitySet="Услуги">
+                <ScalarProperty Name="Id_услуги" ColumnName="Id_услуги" />
+                <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование услуги" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
