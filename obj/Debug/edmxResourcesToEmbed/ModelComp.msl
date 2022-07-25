@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Данные_компанииEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Бригады">
+      <EntityTypeMapping TypeName="Model.Бригады">
+        <MappingFragment StoreEntitySet="Бригады">
+          <ScalarProperty Name="id_бригады" ColumnName="id_бригады" />
+          <ScalarProperty Name="Название_бригады" ColumnName="Название бригады" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="График_работы">
+      <EntityTypeMapping TypeName="Model.График_работы">
+        <MappingFragment StoreEntitySet="График работы">
+          <ScalarProperty Name="Id_графика" ColumnName="Id_графика" />
+          <ScalarProperty Name="Понедельник" ColumnName="Понедельник" />
+          <ScalarProperty Name="Вторник" ColumnName="Вторник" />
+          <ScalarProperty Name="Среда" ColumnName="Среда" />
+          <ScalarProperty Name="Четверг" ColumnName="Четверг" />
+          <ScalarProperty Name="Пятница" ColumnName="Пятница" />
+          <ScalarProperty Name="Суббота" ColumnName="Суббота" />
+          <ScalarProperty Name="Воскресенье" ColumnName="Воскресенье" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Должности">
+      <EntityTypeMapping TypeName="Model.Должности">
+        <MappingFragment StoreEntitySet="Должности">
+          <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+          <ScalarProperty Name="Наименование_должности" ColumnName="Наименование должности" />
+          <ScalarProperty Name="Id_услуги" ColumnName="Id_услуги" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заявки">
+      <EntityTypeMapping TypeName="Model.Заявки">
+        <MappingFragment StoreEntitySet="Заявки">
+          <ScalarProperty Name="Id_заявки" ColumnName="Id_заявки" />
+          <ScalarProperty Name="Фамилия_клиента" ColumnName="Фамилия клиента" />
+          <ScalarProperty Name="Имя_клиента" ColumnName="Имя клиента" />
+          <ScalarProperty Name="Отчество_клиента" ColumnName="Отчество клиента" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="e_mail" ColumnName="e-mail" />
+          <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование услуги" />
+          <ScalarProperty Name="Сроки_исследования__начало_конец_" ColumnName="Сроки исследования (начало-конец)" />
+          <ScalarProperty Name="Координаты_объекта_исследования" ColumnName="Координаты объекта исследования" />
+          <ScalarProperty Name="Итогодая_цена" ColumnName="Итогодая цена" />
+          <ScalarProperty Name="Дата_добавления_заявки" ColumnName="Дата добавления заявки" />
+          <ScalarProperty Name="Заявка_выполнена___не_выполнена__да_нет_" ColumnName="Заявка выполнена / не выполнена (да/нет)" />
+          <ScalarProperty Name="Дата_выполнения_заявки" ColumnName="Дата выполнения заявки" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Работа_бригад_за_месяц">
+      <EntityTypeMapping TypeName="Model.Работа_бригад_за_месяц">
+        <MappingFragment StoreEntitySet="Работа бригад за месяц">
+          <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+          <ScalarProperty Name="Id_заявки" ColumnName="Id_заявки" />
+          <ScalarProperty Name="Id_бригады" ColumnName="Id_бригады" />
+          <ScalarProperty Name="Время_на_выполнение_заявки" ColumnName="Время на выполнение заявки" />
+          <ScalarProperty Name="Дата_выполнения_заявки" ColumnName="Дата выполнения заявки" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сведения_о_сотрудниках">
+      <EntityTypeMapping TypeName="Model.Сведения_о_сотрудниках">
+        <MappingFragment StoreEntitySet="Сведения о сотрудниках">
+          <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+          <ScalarProperty Name="Фамилия_сотрудника" ColumnName="Фамилия сотрудника" />
+          <ScalarProperty Name="Имя_сотрудника" ColumnName="Имя сотрудника" />
+          <ScalarProperty Name="Отчество_сотрудника" ColumnName="Отчество сотрудника" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+          <ScalarProperty Name="Адрес_проживания" ColumnName="Адрес проживания" />
+          <ScalarProperty Name="Id_графика" ColumnName="Id_графика" />
+          <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СотрудникиБригад">
+      <EntityTypeMapping TypeName="Model.СотрудникиБригад">
+        <MappingFragment StoreEntitySet="СотрудникиБригад">
+          <ScalarProperty Name="Id_сотрудника_бригады" ColumnName="Id_сотрудника_бригады" />
+          <ScalarProperty Name="Id_сотрудника" ColumnName="Id_сотрудника" />
+          <ScalarProperty Name="Id_должности" ColumnName="Id_должности" />
+          <ScalarProperty Name="id_бригады" ColumnName="id_бригады" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуги">
+      <EntityTypeMapping TypeName="Model.Услуги">
+        <MappingFragment StoreEntitySet="Услуги">
+          <ScalarProperty Name="Id_услуги" ColumnName="Id_услуги" />
+          <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование услуги" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
