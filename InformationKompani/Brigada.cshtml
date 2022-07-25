@@ -1,0 +1,32 @@
+﻿@{
+    var db = Data.Open("Данные компании.mdf");
+    var selectQueryString = "SELECT * FROM Бригады ORDER BY Название бригады";
+    
+}
+
+<div class="jumbotron">
+      <h1>Бригады</h1>
+</div>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id_бригады</th>
+                <th>Название бригады</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in db.Query(selectQueryString))
+            {
+                <tr>
+                    <td>@row.id_бригады</td>
+                    <td>@row.Название бригады</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
